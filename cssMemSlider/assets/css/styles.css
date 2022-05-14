@@ -12,19 +12,24 @@
     background-color: #25282A;
 }
 
-.container > input {
-    visibility: hidden;
-}
-
 .header__title {
     margin: 30px 0;
     font-size: 34px;
     color: #3EA6FF;
 }
 
-.mem-slider {
-    width: 80%;
+.slider__container {
+    width: 90%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mem-slider {
+    width: inherit;
+    height: inherit;
     margin-bottom: 20px;
     overflow: hidden;
     position: relative;
@@ -47,18 +52,42 @@
 .mem5 { background: center / cover no-repeat url('../img/mem5.jpg'); }
 .mem6 { background: center / cover no-repeat url('../img/mem6.jpg'); }
 
+.controls__container {
+    width: inherit;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.radio__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.radio__button > input {
+    opacity: 0;
+}
+
+.radio__button > label {
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    border: 1px solid #3EA6FF;
+    border-radius: 100%; 
+    background-color: #3EA6FF;
+    cursor: pointer;
+}
+
+.radio__button input[type="radio"]:checked+label,
+.radio__button input[type="radio"]:checked {
+    background-color: transparent;
+    border: 1px solid #3EA6FF;
+}
+
 label {
     display: flex;
     justify-content: space-between;
     font-size: 20px;
-    color: #333;
-}
-
-label > span {
-    display: block;
-    width: 1em;
-    height: 1em;
-    border: 1px solid #ccc;
-    border-radius: 50%; 
-    background-color: #323232;
+    color: #ccc;
 }
