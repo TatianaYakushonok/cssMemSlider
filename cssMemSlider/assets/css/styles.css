@@ -26,7 +26,7 @@
     align-items: center;
 }
 
-.controls > label {
+.slider__container > input {
     display: none;
 }
 
@@ -37,15 +37,16 @@
     overflow: hidden;
     position: relative;
     background-color: #323232;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .mem-slides {
     width: 100%;
     height: 100%;
     position: absolute;
-    opacity: 0;
+    transform: translateX(-300%);
     z-index: 0;
+    transition: all 2s ease-in-out;
 }
 
 .img1 { background: center / cover no-repeat url('../img/mem1.jpg'); }
@@ -55,23 +56,13 @@
 .img5 { background: center / cover no-repeat url('../img/mem5.jpg'); }
 .img6 { background: center / cover no-repeat url('../img/mem6.jpg'); }
 
-.controls__container {
-    width: inherit;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-}
-
 .controls {
     width: inherit;
+    margin-bottom: 30px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 10px;
-}
-
-.slider__container > input {
-    display: none;
 }
 
 .controls > label {
@@ -82,6 +73,13 @@
     border-radius: 100%; 
     background-color: #3EA6FF;
     cursor: pointer;
+    transition: background-color .3s ease-in;
+}
+
+.controls > label:hover {
+    transform: scale(1.3);
+    background-color: #fff;
+    border: 1px solid #fff;
 }
 
 #mem1:checked ~ .controls label:nth-of-type(1),
@@ -100,17 +98,6 @@
 #mem4:checked ~ .mem-slider > .img4,
 #mem5:checked ~ .mem-slider > .img5,
 #mem6:checked ~ .mem-slider > .img6 {
-    opacity: 1;
+    transform: translateX(0);
     z-index: 1;
 }
-
-.radio__button#mem1:checked ~ .controls label[for="mem1"] {
-    display: block;
-}
-
-/*label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 20px;
-    color: #ccc;
-}*/
