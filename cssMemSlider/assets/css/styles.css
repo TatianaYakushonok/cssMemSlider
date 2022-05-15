@@ -56,6 +56,21 @@
 .img5 { background: center / cover no-repeat url('../img/mem5.jpg'); }
 .img6 { background: center / cover no-repeat url('../img/mem6.jpg'); }
 
+.description {
+    width: inherit;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #ccc;
+    overflow: hidden;
+}
+
+.description > label {
+    display: none;
+    opacity: 0;
+    transition: all 3s ease-in-out;
+}
+
 .controls {
     width: inherit;
     margin-bottom: 30px;
@@ -90,6 +105,17 @@
 #mem6:checked ~ .controls label:nth-of-type(6) {
     background-color: transparent;
     border: 1px solid #3EA6FF;
+}
+
+#mem1:checked ~ .description label:nth-of-type(1),
+#mem2:checked ~ .description label:nth-of-type(2),
+#mem3:checked ~ .description label:nth-of-type(3),
+#mem4:checked ~ .description label:nth-of-type(4),
+#mem5:checked ~ .description label:nth-of-type(5),
+#mem6:checked ~ .description label:nth-of-type(6) {
+    display: block;
+    opacity: 1;
+    transition-duration: 5s;
 }
 
 #mem1:checked ~ .mem-slider > .img1,
