@@ -1,0 +1,155 @@
+@import './reset.css';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: #25282A;
+}
+
+.header__title {
+    margin: 1.875rem 0;
+    font-size: 2.125rem;
+    color: #3EA6FF;
+}
+
+.slider__container {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider__container > input {
+    display: none;
+}
+
+ .mem-slider {
+    width: inherit;
+    height: inherit;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+    position: relative;
+    background-color: #323232;
+    border-radius: 0.625rem;
+}
+
+.mem-slides {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translateX(-300%);
+    border: 1px solid #323232;
+    border-radius: 0.625rem;
+    z-index: 0;
+    transition: all 2s ease-in-out;
+}
+
+.img1 { background: center / cover no-repeat url('../img/mem1.jpg'); }
+.img2 { background: center / cover no-repeat url('../img/mem2.jpg'); }
+.img3 { background: center / cover no-repeat url('../img/mem3.jpg'); }
+.img4 { background: center / cover no-repeat url('../img/mem4.jpg'); }
+.img5 { background: center / cover no-repeat url('../img/mem5.jpg'); }
+.img6 { background: center / cover no-repeat url('../img/mem6.jpg'); }
+
+.description {
+    width: inherit;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #ccc;
+    overflow: hidden;
+}
+
+.description > label {
+    display: none;
+    opacity: 0;
+    transition: all 3s ease-in-out;
+}
+
+.controls {
+    width: inherit;
+    margin-bottom: 1.875rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.controls > label {
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    border: 1px solid #3EA6FF;
+    border-radius: 100%; 
+    background-color: #3EA6FF;
+    cursor: pointer;
+    transition: background-color .3s ease-in;
+}
+
+.controls > label:hover {
+    transform: scale(1.3);
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+
+#mem1:checked ~ .controls label:nth-of-type(1),
+#mem2:checked ~ .controls label:nth-of-type(2),
+#mem3:checked ~ .controls label:nth-of-type(3),
+#mem4:checked ~ .controls label:nth-of-type(4),
+#mem5:checked ~ .controls label:nth-of-type(5),
+#mem6:checked ~ .controls label:nth-of-type(6) {
+    background-color: transparent;
+    border: 1px solid #3EA6FF;
+}
+
+#mem1:checked ~ .description label:nth-of-type(1),
+#mem2:checked ~ .description label:nth-of-type(2),
+#mem3:checked ~ .description label:nth-of-type(3),
+#mem4:checked ~ .description label:nth-of-type(4),
+#mem5:checked ~ .description label:nth-of-type(5),
+#mem6:checked ~ .description label:nth-of-type(6) {
+    display: block;
+    opacity: 1;
+    transition-duration: 5s;
+}
+
+#mem1:checked ~ .mem-slider > .img1,
+#mem2:checked ~ .mem-slider > .img2,
+#mem3:checked ~ .mem-slider > .img3,
+#mem4:checked ~ .mem-slider > .img4,
+#mem5:checked ~ .mem-slider > .img5,
+#mem6:checked ~ .mem-slider > .img6 {
+    transform: translateX(0);
+    z-index: 1;
+}
+
+@media (max-width: 700px) {
+
+    .slider__container {
+        width: 95%;
+    }
+
+    .mem-slides {
+        background-size: contain;
+    } 
+}
+
+@media (max-width: 430px) {
+
+    .controls {
+        justify-content: center;
+        order: 1;
+    }
+
+    .description {
+        margin-bottom: 1.875rem;
+        order: 2;
+    }
+}
