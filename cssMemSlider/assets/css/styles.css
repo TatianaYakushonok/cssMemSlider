@@ -45,6 +45,8 @@
     height: 100%;
     position: absolute;
     transform: translateX(-300%);
+    border: 1px solid #323232;
+    border-radius: 0.625rem;
     z-index: 0;
     transition: all 2s ease-in-out;
 }
@@ -126,4 +128,28 @@
 #mem6:checked ~ .mem-slider > .img6 {
     transform: translateX(0);
     z-index: 1;
+}
+
+@media (max-width: 700px) {
+
+    .slider__container {
+        width: 95%;
+    }
+
+    .mem-slides {
+        background-size: contain;
+    } 
+}
+
+@media (max-width: 430px) {
+
+    .controls {
+        justify-content: center;
+        order: 1;
+    }
+
+    .description {
+        margin-bottom: 1.875rem;
+        order: 2;
+    }
 }
